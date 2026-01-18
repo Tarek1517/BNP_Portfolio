@@ -124,7 +124,7 @@ onMounted(() => {
                                 <Icon name="streamline-freehand:customer-action-complaint" class="w-5 h-5 text-violet-600" />
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-2xl font-bold text-gray-900">{{ data?.todayComplaint || 0 }}</h3>
+                                <h3 class="text-2xl font-bold text-gray-900">{{ data?.todaysComplaint || 0 }}</h3>
                                 <p class="text-gray-500 text-sm">Today's Complaint</p>
                             </div>
                         </div>

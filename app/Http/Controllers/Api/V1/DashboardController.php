@@ -19,8 +19,8 @@ class DashboardController extends Controller
     {
         $data = array();
         $data['totalServices'] = Service::count();
-        $data['todaysMail'] = CustomerMail::where('created_at', Carbon::today())->count();
-        $data['todaysComplaint'] = Complaint::where('created_at', Carbon::today())->count();
+        $data['todaysMail'] = CustomerMail::whereDate('created_at', Carbon::today())->count();
+        $data['todaysComplaint'] = Complaint::whereDate('created_at', Carbon::today())->count();
         $data['totalComplaint'] = Complaint::count();
         $data['totalMail'] = CustomerMail::count();
         $data['totalCategory'] = ServiceCategory::count();
