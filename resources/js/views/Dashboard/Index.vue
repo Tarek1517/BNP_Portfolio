@@ -116,12 +116,12 @@ onMounted(() => {
 
                 <!-- Today's Activities -->
                 <div
-                    class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-blue-400/30 transition-all duration-300 group">
+                    class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-violet-400/30 transition-all duration-300 group">
                     <div class="p-5">
                         <div class="flex items-center gap-4 mb-3">
                             <div
-                                class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">
-                                <Icon name="mdi:calendar-today" class="w-5 h-5 text-blue-600" />
+                                class="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center group-hover:bg-violet-200 transition-colors duration-300">
+                                <Icon name="streamline-freehand:customer-action-complaint" class="w-5 h-5 text-violet-600" />
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-2xl font-bold text-gray-900">{{ data?.todayComplaint || 0 }}</h3>
@@ -129,7 +129,7 @@ onMounted(() => {
                             </div>
                         </div>
                         <div class="flex items-center text-xs text-gray-500">
-                            <Icon name="mdi:update" class="w-3 h-3 text-blue-500 mr-1" />
+                            <Icon name="hugeicons:complaint" class="w-3 h-3 text-violet-500 mr-1" />
                             <span>Todays Complaint</span>
                         </div>
                     </div>
@@ -137,12 +137,12 @@ onMounted(() => {
 
                 <!-- Today's Activities -->
                 <div
-                    class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-blue-400/30 transition-all duration-300 group">
+                    class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-pink-400/30 transition-all duration-300 group">
                     <div class="p-5">
                         <div class="flex items-center gap-4 mb-3">
                             <div
-                                class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">
-                                <Icon name="mdi:calendar-today" class="w-5 h-5 text-blue-600" />
+                                class="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center group-hover:bg-pink-200 transition-colors duration-300">
+                                <Icon name="mdi:calendar-today" class="w-5 h-5 text-pink-600" />
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-2xl font-bold text-gray-900">{{ data?.totalComplaint || 0 }}</h3>
@@ -150,7 +150,7 @@ onMounted(() => {
                             </div>
                         </div>
                         <div class="flex items-center text-xs text-gray-500">
-                            <Icon name="mdi:update" class="w-3 h-3 text-blue-500 mr-1" />
+                            <Icon name="hugeicons:complaint" class="w-3 h-3 text-pink-500 mr-1" />
                             <span>Total Complaint</span>
                         </div>
                     </div>
@@ -158,12 +158,12 @@ onMounted(() => {
 
                 <!-- Today's Activities -->
                 <div
-                    class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-blue-400/30 transition-all duration-300 group">
+                    class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:border-cyan-400/30 transition-all duration-300 group">
                     <div class="p-5">
                         <div class="flex items-center gap-4 mb-3">
                             <div
-                                class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">
-                                <Icon name="mdi:calendar-today" class="w-5 h-5 text-blue-600" />
+                                class="w-10 h-10 rounded-lg bg-cyan-100 flex items-center justify-center group-hover:bg-cyan-200 transition-colors duration-300">
+                                <Icon name="mdi:calendar-today" class="w-5 h-5 text-cyan-600" />
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-2xl font-bold text-gray-900">{{ data?.totalMail || 0 }}</h3>
@@ -171,7 +171,7 @@ onMounted(() => {
                             </div>
                         </div>
                         <div class="flex items-center text-xs text-gray-500">
-                            <Icon name="mdi:update" class="w-3 h-3 text-blue-500 mr-1" />
+                            <Icon name="material-symbols:contact-mail" class="w-3 h-3 text-cyan-500 mr-1" />
                             <span>Total Mail</span>
                         </div>
                     </div>
@@ -190,7 +190,7 @@ onMounted(() => {
                             </div>
                         </div>
                         <div class="flex items-center text-xs text-gray-500">
-                            <Icon name="mdi:update" class="w-3 h-3 text-blue-500 mr-1" />
+                            <Icon name="ic:baseline-alternate-email" class="w-3 h-3 text-blue-500 mr-1" />
                             <span>Today's Mail</span>
                         </div>
                     </div>
@@ -201,8 +201,7 @@ onMounted(() => {
             <div class="mt-8">
                 <div class="bg-white rounded-xl border border-gray-200 p-5">
                     <div class="flex items-center justify-between mb-4">
-                        <h2 class="text-lg font-semibold text-gray-900">Recent Activities</h2>
-                        <span class="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">Latest</span>
+                        <h2 class="text-lg font-semibold text-gray-900">Recent Complaints</h2>
                     </div>
                     <div class="space-y-3">
 
