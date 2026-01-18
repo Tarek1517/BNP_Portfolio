@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\CustomerMail;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use App\Models\Complaint;
+
 
 class DashboardController extends Controller
 {
@@ -15,7 +19,10 @@ class DashboardController extends Controller
     {
         $data = array();
         $data['totalServices'] = Service::count();
-        $data['totalCustomer'] = User::count();
+        $data['todaysMail'] = CustomerMail::where('created_at', Carbon::today())->count();
+        $data['todaysComplaint'] = Complaint::where('created_at', Carbon::today())->count();
+        $data['totalComplaint'] = Complaint::count();
+        $data['totalMail'] = CustomerMail::count();
         $data['totalCategory'] = ServiceCategory::count();
         return response()->json([
             'data' => $data
