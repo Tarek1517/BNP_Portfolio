@@ -80,77 +80,85 @@ const formatDate = (dateString) => {
 
                             <!-- Mega Menu Dropdown -->
                             <div
-                                class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[900px] bg-white rounded-xl shadow-xl border border-gray-100 p-6 opacity-0 invisible transition-all duration-300 transform translate-y-2 z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
-                                <div class="grid grid-cols-3 gap-8">
-                                    <!-- Social Work Column -->
-                                    <div v-for="category in data?.header_category" :key="category.id">
-                                        <h3 class="text-primary font-bold text-lg mb-4 border-b border-gray-100 pb-2">
-                                            {{ category?.title }}
-                                        </h3>
-                                        <ul class="space-y-3">
-                                            <li v-for="service in category?.services" :key="service.id" class="group">
-                                                <RouterLink :to="service?.slug
-                                                    ? `/services/${service.slug}`
-                                                    : '/education-support'
-                                                    "
-                                                    class="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 text-gray-600 hover:text-secondary group-hover:shadow-sm">
-                                                    <!-- Service Image -->
-                                                    <div class="flex-shrink-0 relative">
-                                                        <div v-if="
-                                                            service?.image
-                                                        " class="w-14 h-14 rounded-lg overflow-hidden bg-gray-100">
-                                                            <img :src="service.image
-                                                                " :alt="service.title
-                                                                    "
-                                                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-                                                            <div
-                                                                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                                class="absolute top-full left-1/2 -translate-x-1/2 w-[900px] opacity-0 invisible transition-all duration-300 transform translate-y-2 z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+                                <!-- Transparent Bridge -->
+                                <div class="h-4 w-full"></div>
+
+                                <div class="bg-white rounded-xl shadow-xl border border-gray-100 p-6">
+                                    <div class="grid grid-cols-3 gap-8">
+                                        <!-- Social Work Column -->
+                                        <div v-for="category in data?.header_category" :key="category.id">
+                                            <h3
+                                                class="text-primary font-bold text-lg mb-4 border-b border-gray-100 pb-2">
+                                                {{ category?.title }}
+                                            </h3>
+                                            <ul class="space-y-3">
+                                                <li v-for="service in category?.services" :key="service.id"
+                                                    class="group">
+                                                    <RouterLink :to="service?.slug
+                                                        ? `/services/${service.slug}`
+                                                        : '/education-support'
+                                                        "
+                                                        class="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all duration-200 text-gray-600 hover:text-secondary group-hover:shadow-sm">
+                                                        <!-- Service Image -->
+                                                        <div class="flex-shrink-0 relative">
+                                                            <div v-if="
+                                                                service?.image
+                                                            " class="w-14 h-14 rounded-lg overflow-hidden bg-gray-100">
+                                                                <img :src="service.image
+                                                                    " :alt="service.title
+                                                                        "
+                                                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+                                                                <div
+                                                                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                                                                </div>
+                                                            </div>
+                                                            <div v-else
+                                                                class="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+                                                                <Icon name="mdi:folder-heart"
+                                                                    class="text-primary text-xl" />
+                                                            </div>
+
+                                                            <!-- Status Badge -->
+                                                            <div v-if="
+                                                                service?.is_featured
+                                                            "
+                                                                class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full leading-none">
+                                                                ★
                                                             </div>
                                                         </div>
-                                                        <div v-else
-                                                            class="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                                                            <Icon name="mdi:folder-heart"
-                                                                class="text-primary text-xl" />
-                                                        </div>
 
-                                                        <!-- Status Badge -->
-                                                        <div v-if="
-                                                            service?.is_featured
-                                                        "
-                                                            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full leading-none">
-                                                            ★
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Service Details -->
-                                                    <div class="flex-1 min-w-0">
-                                                        <!-- Truncated Title -->
-                                                        <h4
-                                                            class="font-semibold text-gray-900 mb-1 leading-tight line-clamp-2 group-hover:text-secondary transition-colors duration-200">
-                                                            {{
-                                                                truncateText(
-                                                                    service?.title,
-                                                                    40
-                                                                )
-                                                            }}
-                                                        </h4>
-
-                                                        <!-- Created Date -->
-                                                        <div class="flex items-center gap-2 text-xs text-gray-500 mt-2">
-                                                            <Icon name="mdi:calendar-clock"
-                                                                class="text-gray-400 flex-shrink-0" />
-                                                            <span class="flex-shrink-0">
+                                                        <!-- Service Details -->
+                                                        <div class="flex-1 min-w-0">
+                                                            <!-- Truncated Title -->
+                                                            <h4
+                                                                class="font-semibold text-gray-900 mb-1 leading-tight line-clamp-2 group-hover:text-secondary transition-colors duration-200">
                                                                 {{
-                                                                    formatDate(
-                                                                        service?.created_at
+                                                                    truncateText(
+                                                                        service?.title,
+                                                                        40
                                                                     )
                                                                 }}
-                                                            </span>
+                                                            </h4>
+
+                                                            <!-- Created Date -->
+                                                            <div
+                                                                class="flex items-center gap-2 text-xs text-gray-500 mt-2">
+                                                                <Icon name="mdi:calendar-clock"
+                                                                    class="text-gray-400 flex-shrink-0" />
+                                                                <span class="flex-shrink-0">
+                                                                    {{
+                                                                        formatDate(
+                                                                            service?.created_at
+                                                                        )
+                                                                    }}
+                                                                </span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </RouterLink>
-                                            </li>
-                                        </ul>
+                                                    </RouterLink>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -174,24 +182,29 @@ const formatDate = (dateString) => {
 
                             <!-- Mega Menu Dropdown -->
                             <div
-                                class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[200px] bg-white rounded-xl shadow-xl border border-gray-100 p-6 opacity-0 invisible transition-all duration-300 transform translate-y-2 z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
-                                <div class="grid grid-cols-1 gap-8">
-                                    <!-- Social Work Column -->
-                                    <div>
-                                        <ul class="space-y-3">
-                                            <li>
-                                                <RouterLink to="/thirty-one-policy"
-                                                    class="text-gray-600 hover:text-secondary hover:pl-2 transition-all duration-200 block text-base font-medium">
-                                                    বিএনপির একত্রিশ দফা
-                                                </RouterLink>
-                                            </li>
-                                            <li>
-                                                <RouterLink to="/nineteen-policy"
-                                                    class="text-gray-600 hover:text-secondary hover:pl-2 transition-all duration-200 block text-base font-medium">
-                                                    বিএনপি'র বিশ দফা
-                                                </RouterLink>
-                                            </li>
-                                        </ul>
+                                class="absolute top-full left-1/2 -translate-x-1/2 w-[200px] opacity-0 invisible transition-all duration-300 transform translate-y-2 z-50 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+                                <!-- Transparent Bridge -->
+                                <div class="h-4 w-full"></div>
+
+                                <div class="bg-white rounded-xl shadow-xl border border-gray-100 p-6">
+                                    <div class="grid grid-cols-1 gap-8">
+                                        <!-- Social Work Column -->
+                                        <div>
+                                            <ul class="space-y-3">
+                                                <li>
+                                                    <RouterLink to="/thirty-one-policy"
+                                                        class="text-gray-600 hover:text-secondary hover:pl-2 transition-all duration-200 block text-base font-medium">
+                                                        বিএনপির একত্রিশ দফা
+                                                    </RouterLink>
+                                                </li>
+                                                <li>
+                                                    <RouterLink to="/nineteen-policy"
+                                                        class="text-gray-600 hover:text-secondary hover:pl-2 transition-all duration-200 block text-base font-medium">
+                                                        বিএনপি'র বিশ দফা
+                                                    </RouterLink>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
